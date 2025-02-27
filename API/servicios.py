@@ -42,7 +42,9 @@ def calcular_puntuacion(modelo_cliente: ModeloCliente, latid_coord: float, long_
     
     poderacion_distancia_oficina = 0.10
     distancia = distancia_manhattan(modelo_cliente.location.latitude, modelo_cliente.location.longitude, latid_coord, long_coord)
-    print(f"Cliente: {modelo_cliente.name}, Lat: {modelo_cliente.location.latitude}, Long: {modelo_cliente.location.longitude}, Distancia: {distancia}")
+    
+    #Debug de distancia
+    # print(f"Cliente: {modelo_cliente.name}, Lat: {modelo_cliente.location.latitude}, Long: {modelo_cliente.location.longitude}, Distancia: {distancia}")
     
 
     normalizacion_distancia = max(0, 1 - (distancia /1000))  
@@ -91,8 +93,6 @@ def clientes_seleccionados(ruta_json: str, latid_coord: float, long_coord: float
     
     for cliente in clientes_fixat:
         cliente.puntaje = calcular_puntuacion(cliente, latid_coord, long_coord)
-        distancia = distancia_manhattan(cliente.location.latitude, cliente.location.longitude, latid_coord, long_coord)
-        print(f"Cliente: {cliente.name}, Distancia: {distancia}")
     
     #Devolver las puntuacioes calculadas y ordenadas
     return sorted(clientes_fixat, key=lambda x: x.puntaje, reverse=True)[:elegidos]
