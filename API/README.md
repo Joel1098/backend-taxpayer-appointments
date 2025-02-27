@@ -20,13 +20,16 @@ esto representará la probabilidad de que un cliente acepte la oferta de la list
 Seperacion de dependencias modularizando para una mejor estructura de la solucion y con ello 
 tener un control en la funcionalidad de cada archivo. 
 
+Se optó por utilizar la distancia manhattan para el manejo de las coordenadas y calculo de las 
+distancias. 
+
 ## Version de python para entorno de ejecucion:
 - 3.11.6
 
 ## Tecnologia:
 - FastAPI
 
-## librerias:
+## Librerias:
 1. pydantic: para definicion de modelos a usar o reusar 
 2. fastapi: para cargar datos de un archivo json 
 
@@ -45,3 +48,12 @@ http://127.0.0.1:8000/clientes-seleccionados?latid_coord=19.3797208&long_coord=-
 
 donde los valores latid_coord y long_coord tienen los valores de ejemplo proporcionados en el archivo
 README.md de la prueba tecnica. 
+
+## Nota:
+
+La normalizacion de datos muestra puntajes algo bajos en la escala de 1 a 10 pero devuelve la lista
+de clientes con aceptacion de ofertas mayores a las de cancelacion. 
+
+En los valores de la URL se pueden modificar los valores de entrada y con ello visualizar que 
+la lista cambia levemente mostrando diferentes clientes dependiendo de las entradas. 
+
